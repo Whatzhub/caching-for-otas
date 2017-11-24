@@ -49,6 +49,7 @@ app.post('/faresearch', (req, res) => {
         if (totalSegments) {
             var cacheJson = {
                 success: true,
+                type: 'cache',
                 message: 'Cached. Results from Redis.',
                 data: {
                     totalSegments: totalSegments
@@ -72,6 +73,7 @@ app.post('/faresearch', (req, res) => {
 
                     var noCacheJson = {
                         success: true,
+                        type: 'api_request',
                         message: 'No Cache. Results from API request.',
                         data: {
                             totalSegments: totalSegments
@@ -84,6 +86,7 @@ app.post('/faresearch', (req, res) => {
                     console.log('API Request Error: ', err);
                     var errorJson = {
                         success: false,
+                        type: null,
                         message: 'No Cache. Results from API request failed.',
                         data: null
                     };
