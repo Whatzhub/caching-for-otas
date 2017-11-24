@@ -1,0 +1,32 @@
+html {}
+
+body {
+	font-family: Heiti TC, helvetica;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.1;
+	font-size: 12px;
+	max-width: 1500px;
+	margin: 0 auto;
+}
+
+.container {padding: 0px 40px 0px 40px;}
+.italic {font-style: italic;}
+.indigo {color: indigo;}
+.chocolate {color: chocolate;}
+.limegreen {color: limegreen;}
+.blue {color: #0074d9;}
+.gold {color: gold;}
+.white {color: white;}
+.hidden {display: none;}
+.center {text-align: center;}
+.align-center {margin: 0 auto;}
+.right {text-align: right;}
+.border-btm {border-bottom: 1px solid #000}
+.pl-10 {padding-left: 10px;}
+.pb-20 {padding-bottom: 20px;}
+.pt-20 {padding-top: 20px;}
+.pt-50 {padding-top: 50px;}
+.pt-100 {padding-top: 100px;}
+.mt-20 {margin-top: 20px;}
+.mb-20 {margin-bottom: 20px;}

@@ -1,0 +1,30 @@
+{
+  "name": "caching-for-otas",
+  "version": "1.0.0",
+  "description": "Sample setup of Redis for OTAs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "opn http://localhost:3000 & node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Whatzhub/caching-for-otas.git"
+  },
+  "author": "Daniel Chan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Whatzhub/caching-for-otas/issues"
+  },
+  "homepage": "https://github.com/Whatzhub/caching-for-otas#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "redis": "^2.8.0",
+    "response-time": "^2.3.2"
+  },
+  "devDependencies": {
+    "opn-cli": "^3.1.0"
+  }
+}

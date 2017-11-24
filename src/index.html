@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Caching Results with Redis</title>
+    <link rel="stylesheet" href="./lib/pure-min.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+
+    <!-- Home Screen View -->
+    <section id="home">
+        <div class="container">
+
+            <div class="pt-20">
+                <h1>Fare search responsiveness demo with applying Redis as an application caching layer on airfare search</h1>
+            </div>
+
+            <div class="border-btm"></div>
+
+            <div class="italic indigo">
+                <h3>Assumptions:</h3>
+                <p>1. A simulation of a round-trip airfare search for 1 adult from HKG to LON, departing 23 MAR and returning
+                    30 MAR shall be used.</p>
+                <p>2. The fare search responsiveness refers to the time required for the server to return a fare search result
+                    to the client's fare search request.
+                </p>
+                <p>3. Redis default settings are used, with key timeouts set at 5 seconds.</p>
+            </div>
+
+            <div class="">
+                <button id="pollingStart" class="pure-button"> Start </button>
+                <button id="pollingClose" class="pure-button" disabled> Reset </button>
+            </div>
+
+            <div class="">
+                <h2>1. Time taken for response (secs)</h2>
+                <p class="chocolate" id="text1"></p>
+                <p class="chocolate" id="text2"></p>
+                <p class="chocolate" id="text3"></p>
+
+                <img id="progressImg1" class="hidden" src="./img/loading.gif" height="120px" width="160px" />
+
+                <p class="chocolate" id="statusText1"></p>
+                
+
+            </div>
+
+        </div>
+        <!-- End of Container -->
+    </section>
+    <!-- End of Home Screen View -->
+
+    <script src="./lib/axios.min.js"></script>
+    <script src="./lib/chart.min.js"></script>
+    <script src="client.js"></script>
+
+</body>
+
+</html>
