@@ -8,6 +8,7 @@ Designing Data-Intensive Applications - Caching &amp; Redis
 ### How do I get set up?
 * Run `npm install`
 * Run `npm start`
+* Open a new terminal tab and run your Redis Server `./redis-stable/src/redis-server`
 * Have fun playing around :p
 
 ### License

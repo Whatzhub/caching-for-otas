@@ -11,7 +11,8 @@ Helpers.fareSearchWithHttps = function (fareSearchObj, bodyParams) {
         path: fareSearchObj.path || '',
         port: 443,
         method: fareSearchObj.method || 'POST',
-        headers: fareSearchObj.headers || {}
+        headers: fareSearchObj.headers || {},
+        rejectUnauthorized: false
     };
 
     var timeLapsed = setInterval(() => {
