@@ -3,6 +3,10 @@ var zlib = require('zlib');
 
 var Helpers = {};
 
+Helpers.getRandomArbitrary = function(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
 Helpers.fareSearchWithHttps = function (fareSearchObj, bodyParams) {
     var timer = 0;
 

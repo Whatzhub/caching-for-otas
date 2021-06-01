@@ -14,19 +14,72 @@
         <div class="container">
 
             <div class="pt-20">
-                <h1>Fare search responsiveness demo with applying Redis as an application caching layer on airfare search</h1>
+                <h1>Stress test demo to simulate default risks of Apricot's lending protocol</h1>
             </div>
 
             <div class="border-btm"></div>
 
             <div class="italic indigo">
                 <h3>Assumptions:</h3>
-                <p>1. A simulation of a round-trip airfare search for 1 adult from HKG to LON, departing 23 MAR and returning
-                    30 MAR shall be used.</p>
-                <p>2. The fare search responsiveness refers to the time required for the server to return a fare search result
-                    to the client's fare search request.
+                <p>1. The simulations sought to discover whether Apricot's lending mechanism will fall into default risk, defined here as loans being under-collateralized, under extreme conditions. 
                 </p>
-                <p>3. Redis default settings are used, with key timeouts set at 5 seconds.</p>
+                <p>2. A simulation on the robustness of the lending protocol will be tested by random-generated key protocol variables as listed below.</p>
+                <p>3. A 100M liquidity pool of SOL with a 50M total debt of USDT shall be assumed.</p>
+                <p>The simulation in this report assumes borrowers borrowing USD stablecoin backed by SOL, as this is the most common use case in other lending protocols. We shall assume the SOL daily trading volume is 100M USD, with total outstanding debt equivalent to 50M USD.</p>
+                <p>4. Solana network settings of 400ms/ block are used, with 3rd party arbitrageurs txns assumed to be confirmed within 1 block.</p>
+
+            </div>
+
+            <div class="grey pt-10">
+                <h3>Key Protocol Variables:</h3>
+
+                <table class="pure-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Variable</th>
+                            <th>Desc</th>
+                            <th>Bound/ Ranges</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Liquidity incentives</td>
+                            <td>Discount to underlying asset collateral for liquidators, i.e. their profitability</td>
+                            <td>[All Charts] 1%</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Reserves loss</td>
+                            <td>Market value loss of usage of APR reserves, Apricot Rescue, and minting of COT</td>
+                            <td>[All Charts] Liquidation Threshold: 110% | Apricot Rescue: 103%</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Market Volatility</td>
+                            <td>Market impact of SOL volatility, i.e. major trigger for liquidation events</td>
+                            <td>[Chart 1] 2-4% | [Chart 2] 10-20% | [Chart 3] 20-40%</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Slippage</td>
+                            <td>One of the most important factors in determining profitability for liquidators, grows proportionally against market volatility</td>
+                            <td>[Chart 1] 0.5-1% | [Chart 2] 2-5% | [Chart 3] 5-10%</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Trading & Transaction Fees</td>
+                            <td>Fixed & minimal</td>
+                            <td>[All Charts] 0.3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <p>1. Liquidity incentives (discount to underlying asset collateral for liquidators)</p>
+                <p>2. Insurance reserves (APR reserves, Apricot Rescue, and minting of COT)</p>
+                <p>3. Slippage (one of the most important factors in determining profitability for liquidators, grows proportionally against market volatility)
+                </p>
+                <p>4. Trading & Transaction fees (fixed & minimal)</p> -->
             </div>
 
             <div class="">
@@ -34,9 +87,9 @@
                 <button id="pollingClose" class="pure-button" disabled> Reset </button>
             </div>
 
-            <div class="pure-g h-150">
+            <div class="pure-g">
                 <div class="pure-u-1-2">
-                    <h2>1. Time taken for response (secs)</h2>
+                    <h2>Real-time generated figures</h2>
                     <p class="chocolate" id="text1"></p>
                     <p class="chocolate" id="text2"></p>
                     <p class="chocolate" id="text3"></p>
@@ -49,12 +102,15 @@
 
             </div>
 
-            <div class="pure-g">
+            <div class="pure-g pt-10">
                 <div class="pure-u-1-2">
                     <canvas id="canvas1"></canvas>
                 </div>
                 <div class="pure-u-1-2">
                     <canvas id="canvas2"></canvas>
+                </div>
+                <div class="pure-u-1-2">
+                    <canvas id="canvas3"></canvas>
                 </div>
 
             </div>
